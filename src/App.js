@@ -3,6 +3,7 @@ import React from "react";
 // import { render } from "react-dom";
 import Counter from "./Counter";
 import { createStore } from "redux";
+import { Provider } from "react-redux";
 
 const initialState = { count: 0 };
 
@@ -35,10 +36,14 @@ store.dispatch({ type: "RESET" });
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Counter />
+      </div>
+    </Provider>
   );
 }
 
 export default App;
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
